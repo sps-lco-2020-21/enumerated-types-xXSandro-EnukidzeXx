@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CardsLib
 {
@@ -71,16 +70,38 @@ namespace CardsLib
             char secondChar = source[1];
             string firstWord = FirstToWord(firstChar);
             string secondWord = SecondToWord(secondChar);
-            output = firstWord + "of" + secondWord;
+            output = firstWord + " of " + secondWord;
             return (output);
 
+        }
+
+        public static CardClass StringToClass(string source) // Halfway done
+        {
+            char firstChar = source[0];
+            char secondChar = source[1];
+            Cards value;
+            if (Char.IsDigit(firstChar))
+            {
+                value = (Cards)(Convert.ToInt32(firstChar.ToString()));
+            }
+            var letters = new[] { 'T', 'J', 'Q', 'K' };
+            var words = new[] { 10, 11, 12, 13 };
+            if (letters.Contains(firstChar))
+            {
+                int index = Array.IndexOf(letters, firstChar);
+                value = (Cards)(words[index]);
+            }
+            else
+            {
+                Console.WriteLine("That's not a valid input");
+            }
         }
 
         private static string FirstToWord(char firstChar)
         {
             if (Char.IsDigit(firstChar))
             {
-                return(NumberToWords(firstChar));
+                return(NumberToWords(Convert.ToInt32(firstChar.ToString())));
             }
             var letters = new[] { 'T', 'J', 'Q', 'K' };
             var words = new[] { "Ten", "Jack", "Queen", "King" };
@@ -97,11 +118,10 @@ namespace CardsLib
 
         public static string SecondToWord(char secondChar)
         {
-            List<char> letters = new List<char>();
-            foreach (Suits i in Enum.GetValues(typeof(Suits)))
+            foreach(string str in Enum.GetNames(typeof(Suits)))
             {
-                if (i[0] == secondChar)
-                    return i;
+                if (str[0] == secondChar)
+                    return str;
             }
             return ("Invalid input");
         }

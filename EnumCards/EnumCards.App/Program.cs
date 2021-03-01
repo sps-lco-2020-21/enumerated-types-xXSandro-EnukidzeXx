@@ -22,7 +22,7 @@ namespace CardsConsole
             };
             int val = CardFunctions.longestRun(hand);
             //Console.WriteLine(val);
-            Console.WriteLine(CardFunctions.StringToCard("KD"));
+            Console.WriteLine(CardFunctions.StringToCard("3H"));            
         }
     }
 }

@@ -12,15 +12,17 @@ namespace EnumConsole
         static void Main(string[] args)
         {
 
-            AssignPrintIncrement();
-            Console.ReadKey();
-            Parsing();
-            Console.ReadKey();
-            Casting();
-            Console.ReadKey();
-            IteratingFlags();           
-            Console.ReadKey();
-            ExtensionMethods();
+            //AssignPrintIncrement();
+            //Console.ReadKey();
+            //Parsing();
+            //Console.ReadKey();
+            //Casting();
+            //Console.ReadKey();
+            //IteratingFlags();           
+            //Console.ReadKey();
+            //ExtensionMethods();
+            //Console.ReadKey();
+            Names();
             Console.ReadKey();
         }
 
